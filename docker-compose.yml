@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: "Pa55w0rd2019"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+
+  urlshortner:
+    build: .
+    ports:
+      - "8080:80"
